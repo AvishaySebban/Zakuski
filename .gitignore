@@ -1,0 +1,6 @@
+.git/
+.idea/
+*.pyc
+ERD.png
+Scehma.txt
+Whiskey_Club_create.sql

@@ -73,7 +73,7 @@ class Update_User:
             raw_json = req.stream.read()
             data = json.loads(raw_json, encoding='utf-8')
 
-            q = """UPDATE `USER` SET `user_id`=%s, `UserName`=%s, `Password`=%s, `Email`=%s WHERE id=%s"""
+            q = """UPDATE `USER` SET `user_id`=%s, `UserName`=%s, `Password`=%s, `Email`=%s WHERE user_id=%s"""
             cursor.execute(q, (data['user_id'], data['UserName'], data['Password'], data['Email']))
             db.commit()
             cursor.close()

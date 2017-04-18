@@ -3,7 +3,7 @@ import MySQLdb
 import json
 import db_conf
 
-class Get_User:
+class GetUser:
     def on_get(self, req, resp):
         try:
             db = MySQLdb.connect(**db_conf.dbConfig)
@@ -16,6 +16,7 @@ class Get_User:
 
             #init the output object
             output = {'User': []}
+
             for row in rows:
                 data = {
                         "user_id": row['user_id'],
@@ -36,7 +37,7 @@ class Get_User:
             resp.status = falcon.HTTP_500
             return resp
 
-class Add_User:
+class AddUser:
     def on_post(self, req, resp):
         try:
             db = MySQLdb.connect(**db_conf.dbConfig)
@@ -64,7 +65,7 @@ class Add_User:
             resp.status = falcon.HTTP_500
             return resp
 
-class Update_User:
+class UpdateUser:
     def on_put(self, req, resp):
         try:
             db = MySQLdb.connect(**db_conf.dbConfig)
@@ -92,7 +93,7 @@ class Update_User:
             return resp
 
 
-class Delete_User:
+class DeleteUser:
     def on_delete(self, req, resp):
         try:
             user_id = req.get_param('user_id')
